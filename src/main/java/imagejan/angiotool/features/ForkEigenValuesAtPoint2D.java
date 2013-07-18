@@ -1,6 +1,6 @@
-package Tubeness.features;
+package imagejan.angiotool.features;
 
-import Utils.Utils;
+import imagejan.angiotool.utils.Utils;
 import ij.ImagePlus;
 import ij.process.ByteProcessor;
 import ij.process.FloatProcessor;
@@ -8,9 +8,9 @@ import ij.process.ImageProcessor;
 import ij.process.ShortProcessor;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
-import Tubeness.math3d.Eigensystem2x2Float;
-import Tubeness.math3d.Eigensystem3x3Float;
-import Tubeness.math3d.JacobiFloat;
+import math3d.Eigensystem2x2Float;
+import math3d.Eigensystem3x3Float;
+import math3d.JacobiFloat;
 
 /**
  *

@@ -15,9 +15,9 @@
  *
  */
 
-package AngioTool;
+package imagejan.angiotool;
 
-import GUI.AngioToolGUI;
+import imagejan.angiotool.gui.AngioToolGUI;
 
 public class AngioTool {
     

@@ -16,7 +16,7 @@
  */
 
 
-package GUI;
+package imagejan.angiotool.gui;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -110,13 +110,13 @@ public class AngioToolAboutBox extends javax.swing.JDialog implements MouseListe
 
         appTitleLabel.setFont(appTitleLabel.getFont().deriveFont(appTitleLabel.getFont().getStyle() | java.awt.Font.BOLD, appTitleLabel.getFont().getSize()+19));
         appTitleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        appTitleLabel.setText(Utils.Utils.NAME);
+        appTitleLabel.setText(imagejan.angiotool.utils.Utils.NAME);
         aboutBoxPanel.add(appTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
         aboutBoxPanel.add(appDescLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 270, -1));
 
         versionLabel.setFont(versionLabel.getFont().deriveFont(versionLabel.getFont().getStyle() | java.awt.Font.BOLD, versionLabel.getFont().getSize()+3));
         versionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        versionLabel.setText("Version " +  Utils.Utils.VERSION);
+        versionLabel.setText("Version " +  imagejan.angiotool.utils.Utils.VERSION);
         aboutBoxPanel.add(versionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 200, -1));
 
         homepageLabel.setFont(homepageLabel.getFont().deriveFont(homepageLabel.getFont().getStyle() | java.awt.Font.BOLD, homepageLabel.getFont().getSize()+3));

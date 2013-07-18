@@ -15,9 +15,9 @@
  *
  */
 
-package Utils;
+package imagejan.angiotool.utils;
 
-import Tubeness.features.Tubeness;
+import imagejan.angiotool.features.Tubeness;
 import ij.IJ;
 import ij.ImagePlus;
 import ij.gui.PolygonRoi;
@@ -31,9 +31,9 @@ import ij.process.ByteProcessor;
 import ij.process.ImageProcessor;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import Skeleton.Skeletonize3D;
-import AngioTool.ThresholdToSelection;
-import AngioTool.PolygonPlus;
+import imagejan.angiotool.skel.Skeletonize3D;
+import imagejan.angiotool.ThresholdToSelection;
+import imagejan.angiotool.PolygonPlus;
 import java.io.File;
 
 public class Utils {
@@ -76,12 +76,12 @@ public class Utils {
     }
 
 
-    public static ArrayList <AnalyzeSkeleton.Point> computeActualJunctions (ArrayList <AnalyzeSkeleton.Point> jv){
-        ArrayList <AnalyzeSkeleton.Point> removed = new ArrayList <AnalyzeSkeleton.Point>();
+    public static ArrayList <skeleton_analysis.Point> computeActualJunctions (ArrayList <skeleton_analysis.Point> jv){
+        ArrayList <skeleton_analysis.Point> removed = new ArrayList <skeleton_analysis.Point>();
         for (int i = 0; i<jv.size(); i++){
-            AnalyzeSkeleton.Point jv1 = jv.get(i);
+            skeleton_analysis.Point jv1 = jv.get(i);
             for (int ii = 0; ii<jv.size(); ii++){
-                AnalyzeSkeleton.Point jv2 = jv.get(ii);
+                skeleton_analysis.Point jv2 = jv.get(ii);
                 if (isNeighbor(jv1, jv2)){
                     removed.add (jv2);
                     jv.remove(ii);
@@ -92,7 +92,7 @@ public class Utils {
         return removed;
     }
 
-    private static boolean isNeighbor (AnalyzeSkeleton.Point p1, AnalyzeSkeleton.Point p2){
+    private static boolean isNeighbor (skeleton_analysis.Point p1, skeleton_analysis.Point p2){
         if (
             ((p1.x == p2.x-1) && (p1.y == p2.y-1)) ||
             ((p1.x == p2.x-1) && (p1.y == p2.y)) ||
@@ -116,7 +116,7 @@ public class Utils {
         int m = Integer.parseInt(version.substring(2, 3));
         int p = Integer.parseInt(version.substring(4, 5));
         if(M < Major || m < minor || p < point) {
-            JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "JRE " + Major + "." + minor + "." + point + " or higher is required to run AllantoisAnalysis. "
+            JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "JRE " + Major + "." + minor + "." + point + " or higher is required to run AngioTool by ImageJan. "
                   + "Download the last JRE version from http://dlc.sun.com.edgesuite.net/jdk7/binaries/index.html\n" +
                   "", "Error", JOptionPane.ERROR_MESSAGE);
 

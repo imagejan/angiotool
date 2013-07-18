@@ -18,7 +18,7 @@
  *
  */
 
-package Skeleton;
+package imagejan.angiotool.skel;
 
 import java.util.ArrayList;
 

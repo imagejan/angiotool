@@ -15,7 +15,7 @@
  *
  */
 
-package GUI;
+package imagejan.angiotool.gui;
 
 import java.io.File;
 import javax.swing.filechooser.*;
@@ -28,9 +28,9 @@ public class ExcelFilter extends FileFilter {
                 return true;
         }
 
-        String extension = Utils.Utils.getExtension(f);
+        String extension = imagejan.angiotool.utils.Utils.getExtension(f);
         if (extension != null) {
-            if (extension.equals(Utils.Utils.xls)) {
+            if (extension.equals(imagejan.angiotool.utils.Utils.xls)) {
                 return true;
             } else {
                 return false;

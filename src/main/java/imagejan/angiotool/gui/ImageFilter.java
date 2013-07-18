@@ -15,7 +15,7 @@
  *
  */
 
-package GUI;
+package imagejan.angiotool.gui;
 
 import java.io.File;
 import javax.swing.filechooser.*;

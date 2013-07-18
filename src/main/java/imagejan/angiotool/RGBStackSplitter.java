@@ -17,7 +17,7 @@
  * http://rsbweb.nih.gov/ij/
  */
 
-package AngioTool;
+package imagejan.angiotool;
 
 import ij.*;
 import ij.process.*;

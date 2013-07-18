@@ -15,7 +15,7 @@
  *
  */
 
-package GUI;
+package imagejan.angiotool.gui;
 
 import java.awt.AlphaComposite;
 import java.awt.Graphics;

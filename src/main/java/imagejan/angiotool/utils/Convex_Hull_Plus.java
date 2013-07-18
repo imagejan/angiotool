@@ -17,7 +17,7 @@
  * http://www.dentistry.bham.ac.uk/landinig/software/software.html
  */
 
-package Utils;
+package imagejan.angiotool.utils;
 
 import ij.*;
 import ij.process.*;

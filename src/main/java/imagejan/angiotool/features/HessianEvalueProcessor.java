@@ -15,9 +15,9 @@
  * Based on Stephan Preibisch
  * http://www.longair.net/edinburgh/imagej/tubeness/"
  */
-package Tubeness.features;
+package imagejan.angiotool.features;
 
-import RecursiveGaussianFilter.RecursiveGaussianFilter;
+import edu.mines.jtk.dsp.RecursiveGaussianFilter;
 import ij.ImagePlus;
 import ij.ImageStack;
 import ij.measure.Calibration;

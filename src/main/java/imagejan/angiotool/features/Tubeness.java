@@ -16,7 +16,7 @@
  * http://www.longair.net/edinburgh/imagej/tubeness/"
  */
 
-package Tubeness.features;
+package imagejan.angiotool.features;
 
 import ij.*;
 

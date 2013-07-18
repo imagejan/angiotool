@@ -15,19 +15,19 @@
  *
  */
 
-package GUI;
+package imagejan.angiotool.gui;
 
-import AngioTool.MemoryMonitor;
-import AngioTool.RGBStackSplitter;
-import AngioTool.Results;
-import AngioTool.SaveToExcel;
-import AnalyzeSkeleton.Edge;
-import AnalyzeSkeleton.Graph;
-import Lacunarity.Lacunarity;
-import Utils.ForkShapeRoiSplines;
-import Utils.Utils;
+import imagejan.angiotool.MemoryMonitor;
+import imagejan.angiotool.RGBStackSplitter;
+import imagejan.angiotool.Results;
+import imagejan.angiotool.SaveToExcel;
+import skeleton_analysis.Edge;
+import skeleton_analysis.Graph;
+import imagejan.angiotool.lacunarity.Lacunarity;
+import imagejan.angiotool.utils.ForkShapeRoiSplines;
+import imagejan.angiotool.utils.Utils;
 import com.jidesoft.swing.RangeSlider;
-import Tubeness.features.Tubeness;
+import imagejan.angiotool.features.Tubeness;
 import ij.IJ;
 import ij.ImagePlus;
 import ij.gui.OvalRoi;
@@ -60,8 +60,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import kz.swing.markSlider;
-import AngioTool.PolygonPlus;
-import AngioTool.SwingWorker;
+import imagejan.angiotool.PolygonPlus;
+import imagejan.angiotool.SwingWorker;
 
 public class AngioToolGUI extends javax.swing.JFrame {
 
@@ -102,9 +102,9 @@ public class AngioToolGUI extends javax.swing.JFrame {
     private ArrayList <Double> currentSigmas; 
 
     private ArrayList <sigmaImages> sI;
-    private ArrayList <AnalyzeSkeleton.Point> al2; 
-    private ArrayList <AnalyzeSkeleton.Point> removedJunctions; 
-    private ArrayList <AnalyzeSkeleton.Point> endPoints;
+    private ArrayList <skeleton_analysis.Point> al2; 
+    private ArrayList <skeleton_analysis.Point> removedJunctions; 
+    private ArrayList <skeleton_analysis.Point> endPoints;
 
     private PolygonPlus convexHull; 
     private double convexHullArea;
@@ -138,7 +138,7 @@ public class AngioToolGUI extends javax.swing.JFrame {
 
     ImagePlus imageThickness;
 
-    AnalyzeSkeleton.SkeletonResult skelResult;
+    skeleton_analysis.SkeletonResult skelResult;
 
     private boolean computeLacunarity = true;
     private double ElSlope;
@@ -240,9 +240,9 @@ public class AngioToolGUI extends javax.swing.JFrame {
         distanceInMMLabel = new javax.swing.JLabel();
         scaleLabel = new javax.swing.JLabel();
         scaleTextField = new javax.swing.JTextField();
-        distanceInPixelsNumberTextField = new GUI.JNumberTextField();
-        distanceInPixelsNumberTextField.setFormat(GUI.JNumberTextField.NUMERIC);
-        distanceInMMNumberTextField = new GUI.JNumberTextField();
+        distanceInPixelsNumberTextField = new imagejan.angiotool.gui.JNumberTextField();
+        distanceInPixelsNumberTextField.setFormat(imagejan.angiotool.gui.JNumberTextField.NUMERIC);
+        distanceInMMNumberTextField = new imagejan.angiotool.gui.JNumberTextField();
         clearCalibrationButton = new javax.swing.JButton();
         overlaySettingsPanel = new javax.swing.JPanel();
         showOutlineCheckBox = new javax.swing.JCheckBox();
@@ -261,16 +261,16 @@ public class AngioToolGUI extends javax.swing.JFrame {
         convexHullLabel = new javax.swing.JLabel();
         skeletonLabel = new javax.swing.JLabel();
         outlineLabel = new javax.swing.JLabel();
-        skeletonColorRoundedPanel = new GUI.RoundedPanel();
-        branchingPointsRoundedPanel = new GUI.RoundedPanel();
-        convexHullRoundedPanel = new GUI.RoundedPanel();
-        outlineRoundedPanel = new GUI.RoundedPanel();
+        skeletonColorRoundedPanel = new imagejan.angiotool.gui.RoundedPanel();
+        branchingPointsRoundedPanel = new imagejan.angiotool.gui.RoundedPanel();
+        convexHullRoundedPanel = new imagejan.angiotool.gui.RoundedPanel();
+        outlineRoundedPanel = new imagejan.angiotool.gui.RoundedPanel();
         showOverlayCheckBox = new javax.swing.JCheckBox();
         saveImageButton = new javax.swing.JButton();
         imageResulFormatComboBox = new javax.swing.JComboBox();
         ExitButton = new javax.swing.JButton();
         helpButton = new javax.swing.JButton();
-        memTransparentTextField = new GUI.TransparentTextField();
+        memTransparentTextField = new imagejan.angiotool.gui.TransparentTextField();
 
         fillHolesRangeSlider.setPaintLabels(true);
         fillHolesRangeSlider.setPaintTicks(true);
@@ -1267,13 +1267,13 @@ public class AngioToolGUI extends javax.swing.JFrame {
         updateStatus (progress, "Computing convex hull... ");
 
 
-        AnalyzeSkeleton.AnalyzeSkeleton as2 = new AnalyzeSkeleton.AnalyzeSkeleton();
+        skeleton_analysis.AnalyzeSkeleton_ as2 = new skeleton_analysis.AnalyzeSkeleton_();
         ImageProcessor ipSkeleton = ipThresholded.duplicate();
         ImagePlus iplusSkeleton = new ImagePlus ("iplusSkeleton", ipSkeleton);
 
-        as2 = new AnalyzeSkeleton.AnalyzeSkeleton();
+        as2 = new skeleton_analysis.AnalyzeSkeleton_();
         as2.setup("", iplusSkeleton);
-        skelResult = as2.run(AnalyzeSkeleton.AnalyzeSkeleton.NONE, false, false, iplusSkeleton, false, false);
+        skelResult = as2.run(skeleton_analysis.AnalyzeSkeleton_.NONE, false, false, iplusSkeleton, false, false);
 
         graph = as2.getGraphs();
         skeletonRoi = computeSkeletonRoi (graph, skeletonColorRoundedPanel.getBackground(), (Integer)skeletonSpinner.getValue());
@@ -1388,7 +1388,7 @@ public class AngioToolGUI extends javax.swing.JFrame {
                 }
 
                 for (int i = 0; i<removedJunctions.size(); i++){
-                    AnalyzeSkeleton.Point p = removedJunctions.get(i);
+                    skeleton_analysis.Point p = removedJunctions.get(i);
                     OvalRoi r = new OvalRoi (p.x, p.y, 1, 1);
                     r.setStrokeWidth((float)strokeWith);
                     r.setStrokeColor(color);
@@ -1571,14 +1571,14 @@ public class AngioToolGUI extends javax.swing.JFrame {
      }
 
 
-    private ArrayList <Roi> computeSkeletonRoi (AnalyzeSkeleton.Graph [] graph, Color color, int size){
+    private ArrayList <Roi> computeSkeletonRoi (skeleton_analysis.Graph [] graph, Color color, int size){
         ArrayList <Roi> r  = new ArrayList <Roi>();
 
         for (int g = 0; g<graph.length; g++){
             ArrayList<Edge> edges = graph[g].getEdges();
             for (int e = 0; e<edges.size(); e++){
                 Edge edge = edges.get(e);
-                ArrayList <AnalyzeSkeleton.Point> points = edge.getSlabs();
+                ArrayList <skeleton_analysis.Point> points = edge.getSlabs();
                 for (int p1 = 0; p1<points.size(); p1++){
                     OvalRoi or = new OvalRoi (points.get(p1).x-size/2, points.get(p1).y-size/2, size, size);
                     r.add (or);
@@ -1588,11 +1588,11 @@ public class AngioToolGUI extends javax.swing.JFrame {
         return r;
     }
 
-    private ArrayList <Roi> computeJunctionsRoi (ArrayList <AnalyzeSkeleton.Point> al, Color color, int size){
+    private ArrayList <Roi> computeJunctionsRoi (ArrayList <skeleton_analysis.Point> al, Color color, int size){
         ArrayList <Roi> r  = new ArrayList <Roi>();
 
         for (int i = 0; i<al.size(); i++){
-            AnalyzeSkeleton.Point p = al.get(i);
+            skeleton_analysis.Point p = al.get(i);
             OvalRoi or = new OvalRoi (p.x-size/2, p.y-size/2, size, size);
             r.add(or);
         }
@@ -1799,17 +1799,17 @@ public class AngioToolGUI extends javax.swing.JFrame {
     private javax.swing.JPanel backgroundParticlesPanel;
     private javax.swing.JButton branchinPointsColorButton;
     private javax.swing.JLabel branchingPointsLabel;
-    private GUI.RoundedPanel branchingPointsRoundedPanel;
+    private imagejan.angiotool.gui.RoundedPanel branchingPointsRoundedPanel;
     private javax.swing.JSpinner branchingPointsSpinner;
     private javax.swing.JButton clearCalibrationButton;
     private javax.swing.JButton convexHullColorButton;
     private javax.swing.JLabel convexHullLabel;
-    private GUI.RoundedPanel convexHullRoundedPanel;
+    private imagejan.angiotool.gui.RoundedPanel convexHullRoundedPanel;
     private javax.swing.JSpinner convexHullSizeSpinner;
     private javax.swing.JLabel distanceInMMLabel;
-    private GUI.JNumberTextField distanceInMMNumberTextField;
+    private imagejan.angiotool.gui.JNumberTextField distanceInMMNumberTextField;
     private javax.swing.JLabel distanceInPixelsLabel;
-    private GUI.JNumberTextField distanceInPixelsNumberTextField;
+    private imagejan.angiotool.gui.JNumberTextField distanceInPixelsNumberTextField;
     private javax.swing.JCheckBox fillHolesCheckBox;
     private com.jidesoft.swing.RangeSlider fillHolesRangeSlider;
     private javax.swing.JSlider fillHolesRangeSlider2;
@@ -1818,11 +1818,11 @@ public class AngioToolGUI extends javax.swing.JFrame {
     private javax.swing.JTextField highThresholdTextField;
     private javax.swing.JComboBox imageResulFormatComboBox;
     private javax.swing.JTextField lowThresholdTextField;
-    private GUI.TransparentTextField memTransparentTextField;
+    private imagejan.angiotool.gui.TransparentTextField memTransparentTextField;
     private javax.swing.JButton openImageButton;
     private javax.swing.JButton outlineColorButton;
     private javax.swing.JLabel outlineLabel;
-    private GUI.RoundedPanel outlineRoundedPanel;
+    private imagejan.angiotool.gui.RoundedPanel outlineRoundedPanel;
     private javax.swing.JSpinner outlineSpinner;
     private javax.swing.JPanel overlaySettingsPanel;
     private static javax.swing.JProgressBar progressBar;
@@ -1848,7 +1848,7 @@ public class AngioToolGUI extends javax.swing.JFrame {
     private kz.swing.markSlider sigmasMarkSlider;
     private javax.swing.JSpinner sigmasSpinner;
     private javax.swing.JButton skeletonColorButton;
-    private GUI.RoundedPanel skeletonColorRoundedPanel;
+    private imagejan.angiotool.gui.RoundedPanel skeletonColorRoundedPanel;
     private javax.swing.JLabel skeletonLabel;
     private javax.swing.JSpinner skeletonSpinner;
     private javax.swing.JCheckBox smallParticlesCheckBox;

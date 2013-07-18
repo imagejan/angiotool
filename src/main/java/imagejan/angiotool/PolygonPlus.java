@@ -15,7 +15,7 @@
  *
  */
 
-package AngioTool;
+package imagejan.angiotool;
 
 import java.awt.Point;
 import java.awt.Polygon;

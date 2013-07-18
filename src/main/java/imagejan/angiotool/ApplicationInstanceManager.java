@@ -15,7 +15,7 @@
  *
  */
 
-package AngioTool;
+package imagejan.angiotool;
 
 import java.net.*;
 import java.io.*;

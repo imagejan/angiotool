@@ -15,9 +15,9 @@
  *
  */
 
-package AngioTool;
+package imagejan.angiotool;
 
-import GUI.TransparentTextField;
+import imagejan.angiotool.gui.TransparentTextField;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

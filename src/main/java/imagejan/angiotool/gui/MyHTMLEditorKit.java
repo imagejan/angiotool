@@ -15,7 +15,7 @@
  *
  */
 
-package GUI;
+package imagejan.angiotool.gui;
 
 import javax.swing.text.html.*;
 import javax.swing.text.*;

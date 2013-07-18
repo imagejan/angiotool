@@ -18,7 +18,7 @@
  *
  */
 
-package Skeleton;
+package imagejan.angiotool.skel;
 
 import ij.ImagePlus;
 import ij.ImageStack;

@@ -15,7 +15,7 @@
  *
  */
 
-package AngioTool;
+package imagejan.angiotool;
 
 import ij.*;
 import java.util.*;
@@ -199,7 +199,7 @@ public class SaveToExcel {
     private int writeHeadingAnalysisInfo (Results results){
         s.setColumnWidth(0, 8000);
         r = s.createRow((short)(0));
-        createCell ((short)(r.getLastCellNum()+ 1), "AngioTool v " + Utils.Utils.VERSION, headingCellStyle);
+        createCell ((short)(r.getLastCellNum()+ 1), "AngioTool v " + imagejan.angiotool.utils.Utils.VERSION, headingCellStyle);
 
         r = s.createRow((short)s.getLastRowNum()+ 2);
 

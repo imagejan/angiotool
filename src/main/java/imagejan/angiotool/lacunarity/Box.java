@@ -15,7 +15,7 @@
  *
  */
 
-package Lacunarity;
+package imagejan.angiotool.lacunarity;
 
 public class Box {
     int xStart;

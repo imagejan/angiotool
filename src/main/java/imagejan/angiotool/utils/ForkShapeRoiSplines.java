@@ -15,14 +15,14 @@
  *
  */
 
-package Utils;
+package imagejan.angiotool.utils;
 
 import ij.gui.PolygonRoi;
 import ij.gui.Roi;
 import ij.gui.ShapeRoi;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
-import AngioTool.PolygonPlus;
+import imagejan.angiotool.PolygonPlus;
 
 public class ForkShapeRoiSplines extends RecursiveTask <ShapeRoi> {
 

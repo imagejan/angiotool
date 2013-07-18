@@ -15,7 +15,7 @@
  *
  */
 
-package AngioTool;
+package imagejan.angiotool;
 
 public interface ApplicationInstanceListener {
     public void newInstanceCreated();

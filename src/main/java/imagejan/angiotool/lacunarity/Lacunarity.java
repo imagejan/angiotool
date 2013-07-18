@@ -15,7 +15,7 @@
  *
  */
 
-package Lacunarity;
+package imagejan.angiotool.lacunarity;
 
 import ij.ImagePlus;
 import ij.measure.CurveFitter;
