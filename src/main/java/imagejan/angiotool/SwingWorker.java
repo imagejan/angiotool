@@ -1,5 +1,4 @@
-
-package AngioTool;
+package imagejan.angiotool;
 
 import javax.swing.SwingUtilities;
 
