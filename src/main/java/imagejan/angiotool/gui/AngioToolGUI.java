@@ -176,13 +176,13 @@ public class AngioToolGUI extends javax.swing.JFrame {
         
         initLookAndFeel();
 
-        Utils.checkJavaVersion(1, 7, 0);
-        Utils.checkImageJVersion(1, 44, "i");
+        //Utils.checkJavaVersion(1, 7, 0);
+        //Utils.checkImageJVersion(1, 44, "i");
 
-        ClassLoader loader = getClass().getClassLoader();
-        URL fileLocation=loader.getResource("images/ATIcon20.gif");
-        imgIcon = Toolkit.getDefaultToolkit().getImage(fileLocation);
-        setIconImage(imgIcon);
+        //ClassLoader loader = getClass().getClassLoader();
+        //URL fileLocation=loader.getResource("images/ATIcon20.gif");
+        //imgIcon = Toolkit.getDefaultToolkit().getImage(fileLocation);
+        //setIconImage(imgIcon);
 
         currentDir = new File ("c:/");
 
