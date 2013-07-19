@@ -136,6 +136,11 @@
 			<url>http://bits.netbeans.org/maven2/</url>
 			<layout>default</layout>
 		</repository>
+		<!-- for markSlider -->
+		<repository>
+			<id>release-repo</id>
+			<url>file:${project.basedir}/maven-repo</url>
+		</repository>
 	</repositories>
 
 	<scm>
