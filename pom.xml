@@ -8,10 +8,10 @@
 	<parent>
 		<groupId>org.scijava</groupId>
 		<artifactId>pom-scijava</artifactId>
-		<version>1.53</version>
+		<version>1.58</version>
 	</parent>
 
-	<groupId>imagejan.angiotool</groupId>
+	<groupId>angiotool</groupId>
 	<artifactId>Angio_Tool</artifactId>
 	<version>0.5.1-SNAPSHOT</version>
 
