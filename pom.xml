@@ -116,25 +116,10 @@
 		</developer>
 	</developers>
 
-	<!-- NB: for project parent -->
 	<repositories>
 		<repository>
-			<id>imagej.releases</id>
-			<url>http://maven.imagej.net/content/repositories/releases</url>
-		</repository>
-		<repository>
-			<id>imagej.snapshots</id>
-			<url>http://maven.imagej.net/content/repositories/snapshots</url>
-		</repository>
-		<repository>
-			<id>maven2</id>
-			<url>http://repo1.maven.org/maven2</url>
-		</repository>
-		<repository>
-			<id>maven2-repository.netbeans.maven2</id>
-			<name>Netbeans Maven Repository</name>
-			<url>http://bits.netbeans.org/maven2/</url>
-			<layout>default</layout>
+			<id>imagej.public</id>
+			<url>http://maven.imagej.net/content/groups/public</url>
 		</repository>
 	</repositories>
 
