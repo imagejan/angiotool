@@ -13,7 +13,7 @@
 
 	<groupId>angiotool</groupId>
 	<artifactId>Angio_Tool</artifactId>
-	<version>0.5.1-SNAPSHOT</version>
+	<version>0.5.1</version>
 
 	<name>plugins/Angio_Tool.jar</name>
 	<description>A Maven project implementing AngioTool</description>
