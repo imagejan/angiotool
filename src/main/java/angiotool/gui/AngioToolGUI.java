@@ -21,12 +21,17 @@ import angiotool.MemoryMonitor;
 import angiotool.RGBStackSplitter;
 import angiotool.Results;
 import angiotool.SaveToExcel;
-import skeleton_analysis.Edge;
-import skeleton_analysis.Graph;
+import sc.fiji.analyzeSkeleton.AnalyzeSkeleton_;
+import sc.fiji.analyzeSkeleton.Edge;
+import sc.fiji.analyzeSkeleton.Graph;
+import sc.fiji.analyzeSkeleton.Point;
+import sc.fiji.analyzeSkeleton.SkeletonResult;
 import angiotool.lacunarity.Lacunarity;
 import angiotool.utils.ForkShapeRoiSplines;
 import angiotool.utils.Utils;
+
 import com.jidesoft.swing.RangeSlider;
+
 import angiotool.features.Tubeness;
 import ij.IJ;
 import ij.ImagePlus;
@@ -38,6 +43,7 @@ import ij.gui.ShapeRoi;
 import ij.process.Blitter;
 import ij.process.ByteProcessor;
 import ij.process.ImageProcessor;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -48,6 +54,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Hashtable;
+
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
@@ -59,6 +66,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
+
 import kz.swing.markSlider;
 import angiotool.PolygonPlus;
 import angiotool.SwingWorker;
@@ -102,9 +110,9 @@ public class AngioToolGUI extends javax.swing.JFrame {
     private ArrayList <Double> currentSigmas; 
 
     private ArrayList <sigmaImages> sI;
-    private ArrayList <skeleton_analysis.Point> al2; 
-    private ArrayList <skeleton_analysis.Point> removedJunctions; 
-    private ArrayList <skeleton_analysis.Point> endPoints;
+    private ArrayList <Point> al2; 
+    private ArrayList <Point> removedJunctions; 
+    private ArrayList <Point> endPoints;
 
     private PolygonPlus convexHull; 
     private double convexHullArea;
@@ -138,7 +146,7 @@ public class AngioToolGUI extends javax.swing.JFrame {
 
     ImagePlus imageThickness;
 
-    skeleton_analysis.SkeletonResult skelResult;
+    SkeletonResult skelResult;
 
     private boolean computeLacunarity = true;
     private double ElSlope;
@@ -1121,7 +1129,7 @@ public class AngioToolGUI extends javax.swing.JFrame {
             this.setVisible(false);
 
             exit();
-            System.exit(0);
+            //System.exit(0);
         }
     }//GEN-LAST:event_ExitButtonActionPerformed
 
@@ -1267,13 +1275,13 @@ public class AngioToolGUI extends javax.swing.JFrame {
         updateStatus (progress, "Computing convex hull... ");
 
 
-        skeleton_analysis.AnalyzeSkeleton_ as2 = new skeleton_analysis.AnalyzeSkeleton_();
+        AnalyzeSkeleton_ as2 = new AnalyzeSkeleton_();
         ImageProcessor ipSkeleton = ipThresholded.duplicate();
         ImagePlus iplusSkeleton = new ImagePlus ("iplusSkeleton", ipSkeleton);
 
-        as2 = new skeleton_analysis.AnalyzeSkeleton_();
+        as2 = new AnalyzeSkeleton_();
         as2.setup("", iplusSkeleton);
-        skelResult = as2.run(skeleton_analysis.AnalyzeSkeleton_.NONE, false, false, iplusSkeleton, false, false);
+        skelResult = as2.run(AnalyzeSkeleton_.NONE, false, false, iplusSkeleton, false, false);
 
         graph = as2.getGraphs();
         skeletonRoi = computeSkeletonRoi (graph, skeletonColorRoundedPanel.getBackground(), (Integer)skeletonSpinner.getValue());
@@ -1388,7 +1396,7 @@ public class AngioToolGUI extends javax.swing.JFrame {
                 }
 
                 for (int i = 0; i<removedJunctions.size(); i++){
-                    skeleton_analysis.Point p = removedJunctions.get(i);
+                    Point p = removedJunctions.get(i);
                     OvalRoi r = new OvalRoi (p.x, p.y, 1, 1);
                     r.setStrokeWidth((float)strokeWith);
                     r.setStrokeColor(color);
@@ -1571,14 +1579,14 @@ public class AngioToolGUI extends javax.swing.JFrame {
      }
 
 
-    private ArrayList <Roi> computeSkeletonRoi (skeleton_analysis.Graph [] graph, Color color, int size){
+    private ArrayList <Roi> computeSkeletonRoi (Graph [] graph, Color color, int size){
         ArrayList <Roi> r  = new ArrayList <Roi>();
 
         for (int g = 0; g<graph.length; g++){
             ArrayList<Edge> edges = graph[g].getEdges();
             for (int e = 0; e<edges.size(); e++){
                 Edge edge = edges.get(e);
-                ArrayList <skeleton_analysis.Point> points = edge.getSlabs();
+                ArrayList <Point> points = edge.getSlabs();
                 for (int p1 = 0; p1<points.size(); p1++){
                     OvalRoi or = new OvalRoi (points.get(p1).x-size/2, points.get(p1).y-size/2, size, size);
                     r.add (or);
@@ -1588,11 +1596,11 @@ public class AngioToolGUI extends javax.swing.JFrame {
         return r;
     }
 
-    private ArrayList <Roi> computeJunctionsRoi (ArrayList <skeleton_analysis.Point> al, Color color, int size){
+    private ArrayList <Roi> computeJunctionsRoi (ArrayList <Point> al, Color color, int size){
         ArrayList <Roi> r  = new ArrayList <Roi>();
 
         for (int i = 0; i<al.size(); i++){
-            skeleton_analysis.Point p = al.get(i);
+            Point p = al.get(i);
             OvalRoi or = new OvalRoi (p.x-size/2, p.y-size/2, size, size);
             r.add(or);
         }

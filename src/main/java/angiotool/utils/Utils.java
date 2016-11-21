@@ -29,11 +29,16 @@ import ij.plugin.filter.ParticleAnalyzer;
 import ij.process.Blitter;
 import ij.process.ByteProcessor;
 import ij.process.ImageProcessor;
+
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+
+import sc.fiji.analyzeSkeleton.Point;
 import angiotool.skel.Skeletonize3D;
 import angiotool.ThresholdToSelection;
 import angiotool.PolygonPlus;
+
 import java.io.File;
 
 public class Utils {
@@ -76,12 +81,12 @@ public class Utils {
     }
 
 
-    public static ArrayList <skeleton_analysis.Point> computeActualJunctions (ArrayList <skeleton_analysis.Point> jv){
-        ArrayList <skeleton_analysis.Point> removed = new ArrayList <skeleton_analysis.Point>();
+    public static ArrayList <Point> computeActualJunctions (ArrayList <Point> jv){
+        ArrayList <Point> removed = new ArrayList <Point>();
         for (int i = 0; i<jv.size(); i++){
-            skeleton_analysis.Point jv1 = jv.get(i);
+            Point jv1 = jv.get(i);
             for (int ii = 0; ii<jv.size(); ii++){
-                skeleton_analysis.Point jv2 = jv.get(ii);
+                Point jv2 = jv.get(ii);
                 if (isNeighbor(jv1, jv2)){
                     removed.add (jv2);
                     jv.remove(ii);
@@ -92,7 +97,7 @@ public class Utils {
         return removed;
     }
 
-    private static boolean isNeighbor (skeleton_analysis.Point p1, skeleton_analysis.Point p2){
+    private static boolean isNeighbor (Point p1, Point p2){
         if (
             ((p1.x == p2.x-1) && (p1.y == p2.y-1)) ||
             ((p1.x == p2.x-1) && (p1.y == p2.y)) ||

@@ -6,9 +6,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>net.imagej</groupId>
-		<artifactId>pom-imagej</artifactId>
-		<version>8.1.0</version>
+		<groupId>sc.fiji</groupId>
+		<artifactId>pom-fiji</artifactId>
+		<version>26.1.1</version>
 	</parent>
 
 	<groupId>angiotool</groupId>
@@ -22,22 +22,18 @@
 		<dependency>
 			<groupId>net.imagej</groupId>
 			<artifactId>ij</artifactId>
-			<version>${imagej1.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>sc.fiji</groupId>
 			<artifactId>AnalyzeSkeleton_</artifactId>
-			<version>2.0.4</version>
 		</dependency>
 		<dependency>
 			<groupId>sc.fiji</groupId>
 			<artifactId>VIB-lib</artifactId>
-			<version>2.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>sc.fiji</groupId>
 			<artifactId>Skeletonize3D_</artifactId>
-			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jsr166-mirror</groupId>
@@ -47,22 +43,21 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>3.9</version>
+			<version>3.15</version>
 		</dependency>
 		<dependency>
 			<groupId>com.jidesoft</groupId>
 			<artifactId>jide-oss</artifactId>
-			<version>3.6.9</version>
+			<version>3.6.16</version>
 		</dependency>
 		<dependency>
 			<groupId>org.netbeans.external</groupId>
 			<artifactId>AbsoluteLayout</artifactId>
-			<version>RELEASE701</version>
+			<version>RELEASE802</version>
 		</dependency>
 		<dependency>
 			<groupId>edu.mines</groupId>
 			<artifactId>mines-jtk</artifactId>
-			<version>20100113</version>
 		</dependency>
 	</dependencies>
 
