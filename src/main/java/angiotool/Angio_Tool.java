@@ -5,9 +5,9 @@ import ij.plugin.PlugIn;
 import angiotool.gui.AngioToolGUI;
 
 /**
- * This is an ImageJ plugin that serves to start AngtioTool
+ * This is an ImageJ plugin that serves to start AngioTool
  *
- * @author: Jan Eglinger <jan.eglinger@gmail.com>
+ * @author Jan Eglinger
  */
 public class Angio_Tool implements PlugIn {
 	

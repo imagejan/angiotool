@@ -8,8 +8,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
  * License for more details.
  *
- * @author <a href="mailto:zudairee@mail.nih.gov">
- * Enrique Zudaire</a>, Radiation Oncology Branch, NCI, NIH
+ * @author Enrique Zudaire, Radiation Oncology Branch, NCI, NIH
  * May, 2011
  * angiotool.nci.nih.gov
  *
